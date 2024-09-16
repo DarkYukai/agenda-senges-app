@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//importar o controller
+use App\Http\Controllers\EventoController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//escolher o tipo de retorno, resource, get, post, put, delete, any
+//route::resource('rota',ModeloController::class);
+//route::get('rota',[ModeloController::class,'index']);
+//nao esquecer de importar o controller
+Route::get('/', function(){return view('welcome');});
+Route::resource('eventos',EventoController::class);
