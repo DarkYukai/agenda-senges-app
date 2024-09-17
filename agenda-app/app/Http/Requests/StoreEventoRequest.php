@@ -11,7 +11,7 @@ class StoreEventoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,12 @@ class StoreEventoRequest extends FormRequest
     {
         return [
             //
+            'data' => 'required|date',
+            'descricao' => 'required|text',
+            'inicio' => 'required|time',
+            'final' => 'required|time',
+            'contato' => 'required|text|max:255',
+            'realizado' => 'required|boolean',
         ];
     }
 }
