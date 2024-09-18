@@ -11,5 +11,5 @@ class Evento extends Model
 
     //listar os campos que o model vai trabalhar
     //serve tambem para criacao em massa de dados
-    protected $fillable = ['data','discricao','inicio','final','contato','realizado'];
+    protected $fillable = ['data','descricao','inicio','final','contato','realizado'];
 }

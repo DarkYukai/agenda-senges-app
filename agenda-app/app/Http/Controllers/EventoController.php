@@ -43,9 +43,14 @@ class EventoController extends Controller
         //se tiver o store request valida antes de chegar aqui
         //request $request precisa validar aqui
         //criar o evento
+        $request->merge([
+            'realizado' => $request->has('realizado') ? true : false
+        ]);        
+        //dd($request->all());
         Evento::create($request->all());
         //redirecionar para a rota do index com mensagem de sucesso
-        return redirect()->route('eventos.index')->with('success', 'Evento criado com sucesso');
+        //return redirect()->route('eventos.index')->with('success', 'Evento criado com sucesso');
+        return redirect()->away('/eventos')->with('success', 'Evento criado com sucesso');
     }
 
     /**
@@ -80,7 +85,7 @@ class EventoController extends Controller
         //faço atroca de conteudo
         $evento->update($request->all());
         //redirecionar para o index
-        return redirect()->route('eventos.index')->with('success', 'Evento atualizado do sucesso');
+        return redirect()->away('/eventos')->with('success', 'Evento atualizado do sucesso');
     }
     
     /**
@@ -94,6 +99,6 @@ class EventoController extends Controller
         //temos o softdelete que oculta o dado
         $evento->delete();
         //redirecionar para o index
-        return redirect()->route('eventos.index')->with('success', 'Evento removido com sucesso');
+        return redirect()->away('/eventos')->with('success', 'Evento removido com sucesso');
     }
 }

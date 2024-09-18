@@ -24,11 +24,11 @@ class StoreEventoRequest extends FormRequest
         return [
             //
             'data' => 'required|date',
-            'descricao' => 'required|text',
-            'inicio' => 'required|time',
-            'final' => 'required|time',
-            'contato' => 'required|text|max:255',
-            'realizado' => 'required|boolean',
+            'descricao' => 'required|string',
+            'inicio' => 'required|date_format:H:i',
+            'final' => 'required|date_format:H:i',
+            'contato' => 'required|string|max:255',
+            'realizado' => 'nullable',
         ];
     }
 }
