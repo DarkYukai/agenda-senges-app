@@ -18,6 +18,12 @@ class EventoFactory extends Factory
     {
         return [
             //
+            'data' => $this->faker->date(),
+            'descricao' => $this->faker->sentence(),
+            'inicio' => $this->faker->time('H:i'),
+            'final' => $this->faker->time('H:i'),
+            'contato' => $this->faker->firstName(),
+            'realizado' => $this->faker->boolean()
         ];
     }
 }

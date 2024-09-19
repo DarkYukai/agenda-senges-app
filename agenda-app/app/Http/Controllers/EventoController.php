@@ -83,6 +83,9 @@ class EventoController extends Controller
         //se receber $id devo consultar antes de alterar
         //$evento = Evento::find($id);
         //faço atroca de conteudo
+        $request->merge([
+            'realizado' => $request->has('realizado') ? true : false
+        ]);
         $evento->update($request->all());
         //redirecionar para o index
         return redirect()->away('/eventos')->with('success', 'Evento atualizado do sucesso');

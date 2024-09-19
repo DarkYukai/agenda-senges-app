@@ -15,7 +15,7 @@
                 <th>Final</th>
                 <th>Contato</th>
                 <th>Realizado</th>
-                <th colspan='2'>Ações</th>
+                <th colspan='3'>Ações</th>
             </thead>
             <tbody>
                 @foreach($eventos as $evento)
@@ -28,9 +28,17 @@
                     <td>{{$evento->contato}}</td>
                     <td>{{$evento->realizado}}</td>
                     <td>
-                        <a href="/eventos/{{$evento->id}}" class="btn btn-warning">                             
+                        <!--route('evento.show') -->
+                        <a href="/eventos/{{$evento->id}}" class="btn btn-info">                             
+                        <i class="bi bi-eye"></i>
+                                                      
+                        </a>
+                    </td>
+                    <td>
+                        <!--route('evento.edit', $evento) -->
+                        <a href="/eventos/{{$evento->id}}/edit" class="btn btn-warning">                             
                         <i class="bi bi-pencil-square"></i>
-                            Editar                          
+                                                      
                         </a>
                     </td>
                     <td>
@@ -40,7 +48,7 @@
                             @method('DELETE')
                             <button class="btn btn-danger">
                             <i class="bi bi-trash3"></i>
-                                Remover
+                                
                             </button>
                         </form>
                     </td>
