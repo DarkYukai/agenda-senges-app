@@ -16,7 +16,8 @@ class EventoController extends Controller
         //funçao da pagina inicial da meu dominio
         //vou buscar no banco de dados todos os itens
         //select * from eventos;
-        $eventos = Evento::all();
+        //$eventos = Evento::all();
+        $eventos = Evento::paginate(20);
         //posso aplicar outras regras de negocio
         //retornar alguma coisa para o cliente
         return view('eventos.index',compact('eventos'));

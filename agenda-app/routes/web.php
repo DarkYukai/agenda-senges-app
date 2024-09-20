@@ -9,6 +9,7 @@ use App\Http\Controllers\EventoController;
 //route::get('rota',[ModeloController::class,'index']);
 //nao esquecer de importar o controller
 Route::get('/', function(){
+    //return redirect()->route('eventos.index');
     return redirect()->away('/eventos');
 });
 //php artisan route:list
